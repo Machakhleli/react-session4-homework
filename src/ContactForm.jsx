@@ -1,14 +1,14 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 function ContactForm() {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+  //   const [fullName, setFullName] = useState("");
+  //   const [email, setEmail] = useState("");
+  //   const [subject, setSubject] = useState("");
+  //   const [message, setMessage] = useState("");
 
   return (
     <form
-      className="max-w-[20%] mx-auto my-8 h-[45vh] flex flex-col gap-4 p-4  rounded-4xl shadow-2xl opacity-60
+      className="max-w-md mx-auto my-8 h-auto flex flex-col gap-4 p-4  rounded-4xl shadow-2xl opacity-60
      bg-gradient-to-br from-blue-500 to-orange-400  text-white"
     >
       <label htmlFor="fullname">

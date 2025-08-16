@@ -8,13 +8,13 @@
     /* opacity: 75%; */
     @apply flex items-center justify-center h-screen;
   }
-  #root {
+  /* #root {
     @apply w-full;
-  }
+  } */
   label {
     @apply flex flex-col items-center justify-center text-white text-[1.2rem] gap-2;
   }
   input {
-    @apply w-[20rem] h-[2.5rem] rounded-md text-white text-[1.2rem] text-center px-2 outline-0 border-1 border-white bg-transparent;
+    @apply w-xs h-[2.5rem] rounded-md text-white text-[1.2rem] text-center px-2 outline-0 border-1 border-white bg-transparent;
   }
 }
