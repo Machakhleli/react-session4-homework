@@ -1,13 +1,17 @@
-// import { useState } from "react";
+import { useState } from "react";
 
 function ContactForm() {
-  //   const [fullName, setFullName] = useState("");
-  //   const [email, setEmail] = useState("");
-  //   const [subject, setSubject] = useState("");
-  //   const [message, setMessage] = useState("");
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
 
   return (
     <form
+      onSubmit={handleSubmit}
       className="max-w-md mx-auto my-8 h-auto flex flex-col gap-4 p-4  rounded-4xl shadow-2xl opacity-60
      bg-gradient-to-br from-blue-500 to-orange-400  text-white"
     >
@@ -32,6 +36,12 @@ function ContactForm() {
           placeholder="Type your message here..."
         ></textarea>
       </label>
+      <button
+        onClick={handleSubmit}
+        className="w-[5rem] mx-auto border-1 rounded-lg p-1 cursor-pointer hover:bg-blue-100 hover:text-orange-400"
+      >
+        Submit
+      </button>
     </form>
   );
 }
