@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ContactForm from "./ContactForm";
+import ContactForm from "./components/ContactForm";
 
 function App() {
   return (
