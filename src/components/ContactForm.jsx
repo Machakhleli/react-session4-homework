@@ -3,27 +3,34 @@ import Checkbox from "./Checkbox";
 import RadioButtons from "./RadioButtons";
 
 function ContactForm() {
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
-
-  // const [fullName, setFullName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [subject, setSubject] = useState("");
-  // const [message, setMessage] = useState("");
-
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     subject: "",
     message: "",
+    contactMethod: "",
+    terms: false,
   });
+
   function handleChange(event) {
-    const { name, value } = event.target;
-    setFormData((prevDAta) => ({
-      ...prevDAta,
-      [name]: value,
+    const { name, value, type, checked } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === "checkbox" ? checked : value,
     }));
+  }
+  
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (!formData.terms) {
+      alert(" You must agree to the terms and conditions before submitting.");
+      return;
+    }
+
+    if (!formData.email.includes("@")) {
+      alert("Please enter a valid email address.");
+      return;
+    }
   }
 
   return (
@@ -37,7 +44,6 @@ function ContactForm() {
         <input
           type="text"
           name="fullName"
-          id="fullName"
           placeholder="Firstname Lastname"
           value={formData.fullName}
           onChange={handleChange}
@@ -79,11 +85,15 @@ function ContactForm() {
           onChange={handleChange}
         ></textarea>
       </label>
-      <button className="w-[5rem] mx-auto border-1 rounded-lg p-1 cursor-pointer hover:bg-blue-100 hover:text-orange-400">
+      <RadioButtons value={formData.contactMethod} onChange={handleChange} />
+      <Checkbox checked={formData.terms} onChange={handleChange} />
+      <button
+        type="submit"
+        className="w-[5rem] mx-auto border-1 rounded-lg p-1 cursor-pointer hover:bg-blue-100 hover:text-orange-400"
+        disabled={!formData.terms}
+      >
         Submit
       </button>
-      <Checkbox />
-      <RadioButtons />
     </form>
   );
 }

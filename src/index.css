@@ -21,5 +21,10 @@
   input {
     @apply w-xs h-[2.5rem] rounded-md text-white text-[1.2rem] text-center px-2 outline-none border border-white bg-transparent;
   }
-  
+
+  input[type="radio"] {
+    @apply size-4 text-sm cursor-pointer
+  }
+
+
 }
